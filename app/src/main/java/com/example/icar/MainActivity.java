@@ -88,5 +88,12 @@ public class MainActivity extends AppCompatActivity {
 
     public void OpenForgotPasswordPage(View view) {
         // TODO: handle later
+
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        mAuth.signOut();
     }
 }
