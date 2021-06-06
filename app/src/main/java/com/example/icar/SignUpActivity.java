@@ -14,6 +14,7 @@ import android.view.WindowManager;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -29,6 +30,7 @@ public class SignUpActivity extends AppCompatActivity {
     private EditText edtName, edtEmail, edtPassword;
     private FloatingActionButton btnEnter;
     private CheckBox checkBox;
+    private ProgressBar progressBar;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -46,6 +48,7 @@ public class SignUpActivity extends AppCompatActivity {
         edtPassword = findViewById(R.id.editTextPassword);
         btnEnter = findViewById(R.id.floatingButtonEnter);
         checkBox = findViewById(R.id.checkboxShowPassword);
+        progressBar = findViewById(R.id.progressBar);
 
         btnEnter.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,14 +74,18 @@ public class SignUpActivity extends AppCompatActivity {
     private void onCreateNewUser() {
         String email = edtEmail.getText().toString();
         String password = edtPassword.getText().toString();
+        progressBar.setVisibility(View.VISIBLE);
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull @org.jetbrains.annotations.NotNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // TODO: move on dashboard
+                            progressBar.setVisibility(View.GONE);
                             Toast.makeText(SignUpActivity.this, "Successfully sign-up", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(SignUpActivity.this, UpdateProfileActivity.class));
                         } else {
+                            progressBar.setVisibility(View.GONE);
                             Toast.makeText(SignUpActivity.this, "" + task.getException().toString(), Toast.LENGTH_LONG).show();
                         }
                     }
