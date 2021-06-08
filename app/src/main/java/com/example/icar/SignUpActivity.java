@@ -9,6 +9,8 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.InputType;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.CheckBox;
@@ -23,8 +25,13 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
+
+import org.jetbrains.annotations.NotNull;
 
 public class SignUpActivity extends AppCompatActivity {
+
+    private final String KEY = "name";
 
     private FirebaseAuth mAuth;
     private EditText edtName, edtEmail, edtPassword;
@@ -72,18 +79,33 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     private void onCreateNewUser() {
+        progressBar.setVisibility(View.VISIBLE);
         String email = edtEmail.getText().toString();
         String password = edtPassword.getText().toString();
-        progressBar.setVisibility(View.VISIBLE);
+        String name = edtName.getText().toString();
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull @org.jetbrains.annotations.NotNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            // TODO: move on dashboard
                             progressBar.setVisibility(View.GONE);
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            UserProfileChangeRequest profileChangeRequest;
+                            profileChangeRequest = new UserProfileChangeRequest.Builder()
+                                    .setDisplayName(name).build();
+                            user.updateProfile(profileChangeRequest).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull @NotNull Task<Void> task) {
+                                    Log.d("AAA", "User's profile updated");
+                                }
+                            });
+
                             Toast.makeText(SignUpActivity.this, "Successfully sign-up", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(SignUpActivity.this, UpdateProfileActivity.class));
+                            Intent intent = new Intent(SignUpActivity.this, UpdateProfileActivity.class);
+                            Bundle bundle = new Bundle();
+                            bundle.putString(KEY, name);
+                            intent.putExtras(bundle);
+                            startActivity(intent);
                         } else {
                             progressBar.setVisibility(View.GONE);
                             Toast.makeText(SignUpActivity.this, "" + task.getException().toString(), Toast.LENGTH_LONG).show();

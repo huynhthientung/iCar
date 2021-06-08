@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         getWindow().setStatusBarColor(Color.TRANSPARENT);
         setContentView(R.layout.activity_main);
         mAuth = FirebaseAuth.getInstance();
+//        startActivity(new Intent(this, UpdateProfileActivity.class));
         edtEmail = findViewById(R.id.editTextEmail);
         edtPassword = findViewById(R.id.editTextPassword);
         btnEnter = findViewById(R.id.floatingButtonEnter);
