@@ -28,7 +28,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import org.jetbrains.annotations.NotNull;
 
 public class MainActivity extends AppCompatActivity {
-
+    private static final int TIME_INTERVAL = 2000;
+    private long backPressed;
     private FirebaseAuth mAuth;
     private EditText edtEmail, edtPassword;
     private CheckBox checkBox;
@@ -100,5 +101,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         mAuth.signOut();
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (backPressed + TIME_INTERVAL > System.currentTimeMillis()) {
+            super.onBackPressed();
+            return;
+        } else {
+            Toast.makeText(this, "Press back again to exit", Toast.LENGTH_SHORT).show();
+        }
+        backPressed = System.currentTimeMillis();
     }
 }
