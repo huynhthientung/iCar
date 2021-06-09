@@ -10,10 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ICar">
         <activity
+            android:name=".ForgetPasswordActivity"
+            android:theme="@style/Theme.ICarActionBar" />
+        <activity
             android:name=".UpdateProfileActivity"
-            android:theme="@style/Theme.ICarActionBar">
-
-        </activity>
+            android:theme="@style/Theme.ICarActionBar" />
         <activity android:name=".SignUpActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
