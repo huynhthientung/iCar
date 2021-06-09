@@ -44,7 +44,6 @@ public class MainActivity extends AppCompatActivity {
         getWindow().setStatusBarColor(Color.TRANSPARENT);
         setContentView(R.layout.activity_main);
         mAuth = FirebaseAuth.getInstance();
-//        startActivity(new Intent(this, UpdateProfileActivity.class));
         edtEmail = findViewById(R.id.editTextEmail);
         edtPassword = findViewById(R.id.editTextPassword);
         btnEnter = findViewById(R.id.floatingButtonEnter);
@@ -82,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Successfully sign-in", Toast.LENGTH_SHORT).show();
                     // TODO: move on to dashboard
                 } else {
+                    progressBar.setVisibility(View.GONE);
                     Toast.makeText(MainActivity.this, task.getException().toString(), Toast.LENGTH_LONG).show();
                 }
             }
@@ -93,8 +93,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void OpenForgotPasswordPage(View view) {
-        // TODO: handle later
-
+        startActivity(new Intent(this, ForgetPasswordActivity.class));
     }
 
     @Override
