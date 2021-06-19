@@ -81,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Successfully sign-in", Toast.LENGTH_SHORT).show();
                     // TODO: move on to dashboard
                     startActivity(new Intent(MainActivity.this, HomeActivity.class));
+                    finish();
                 } else {
                     progressBar.setVisibility(View.GONE);
                     Toast.makeText(MainActivity.this, task.getException().toString(), Toast.LENGTH_LONG).show();
