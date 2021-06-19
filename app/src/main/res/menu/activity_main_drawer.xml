@@ -10,7 +10,7 @@
             android:icon="@drawable/ic_home"
             android:title="@string/menu_home" />
         <item
-            android:id="@+id/nav_Profile"
+            android:id="@+id/nav_profile"
             android:icon="@drawable/ic_account_box"
             android:title="Profile" />
         <item
@@ -22,11 +22,11 @@
             android:icon="@drawable/ic_menu_slideshow"
             android:title="@string/menu_slideshow" />
         <item
-            android:id="@+id/nav_Bill"
+            android:id="@+id/nav_bill"
             android:icon="@drawable/ic_bill"
             android:title="My transaction" />
         <item
-            android:id="@+id/nav_History"
+            android:id="@+id/nav_history"
             android:icon="@drawable/ic_history"
             android:title="History" />
 
@@ -35,19 +35,20 @@
     <item android:title="Communication">
         <menu>
             <item
-                android:id="@+id/ic_share"
+                android:id="@+id/nav_share"
                 android:icon="@drawable/ic_share"
                 android:title="Share" />
             <item
-                android:id="@+id/ic_send"
+                android:id="@+id/nav_send"
                 android:icon="@drawable/ic_send"
                 android:title="Send" />
+            <item
+                android:id="@+id/nav_logout"
+                android:icon="@drawable/ic_logout"
+                android:title="Logout" />
         </menu>
 
     </item>
-    <item
-        android:id="@+id/ic_logout"
-        android:icon="@drawable/ic_logout"
-        android:title="Logout" />
+
 
 </menu>

@@ -1,7 +1,9 @@
 package com.example.icar;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 import android.widget.ImageView;
@@ -12,7 +14,9 @@ import com.bumptech.glide.Glide;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
+import androidx.core.view.GravityCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -23,6 +27,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.icar.databinding.ActivityHomeBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
+import org.jetbrains.annotations.NotNull;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -53,7 +59,7 @@ public class HomeActivity extends AppCompatActivity {
         });
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
-
+        NavigationView navigationView1 = findViewById(R.id.nav_view);
         // Load data to header
         View headerView = navigationView.getHeaderView(0);
         TextView txtName = headerView.findViewById(R.id.textView_name);
@@ -66,12 +72,40 @@ public class HomeActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
+                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow, R.id.nav_logout,
+                R.id.nav_profile, R.id.nav_history, R.id.nav_bill)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_home);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull @NotNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.nav_share:
+                        Toast.makeText(HomeActivity.this, "Share", Toast.LENGTH_SHORT).show();
+                        //TODO: handle later
+                        break;
+                    case R.id.nav_send:
+                        //TODO: handle later
+                        Toast.makeText(HomeActivity.this, "Send", Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.nav_logout:
+                        mAuth.signOut();
+                        startActivity(new Intent(HomeActivity.this, MainActivity.class));
+                        finish();
+                        break;
+                    default:
+                        break;
+                }
+                // This is for maintaining the behavior of the Navigation view
+//                NavigationUI.onNavDestinationSelected(item, navController);
+                //This is for closing the drawer after acting on it
+                drawer.closeDrawer(GravityCompat.START);
+                return true;
+            }
+        });
     }
 
     @Override
@@ -110,4 +144,5 @@ public class HomeActivity extends AppCompatActivity {
                     }
                 }).create().show();
     }
+
 }
