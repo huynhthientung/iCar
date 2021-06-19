@@ -4,9 +4,11 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
@@ -51,10 +53,16 @@ public class HomeActivity extends AppCompatActivity {
         });
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
-//        TextView txtName = binding.navView.findViewById(R.id.textView_name);
-//        TextView txtEmail = binding.navView.findViewById(R.id.textView_email);
-//        txtName.setText(mUser.getDisplayName());
-//        txtEmail.setText(mUser.getEmail());
+
+        // Load data to header
+        View headerView = navigationView.getHeaderView(0);
+        TextView txtName = headerView.findViewById(R.id.textView_name);
+        TextView txtEmail = headerView.findViewById(R.id.textView_email);
+        ImageView avatar = headerView.findViewById(R.id.profile_image);
+        txtName.setText(mUser.getDisplayName());
+        txtEmail.setText(mUser.getEmail());
+        Glide.with(this).asBitmap().load(mUser.getPhotoUrl()).into(avatar);
+
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
