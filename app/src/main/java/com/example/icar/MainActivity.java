@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        mAuth.signOut();
+        //mAuth.signOut();
     }
 
     @Override
