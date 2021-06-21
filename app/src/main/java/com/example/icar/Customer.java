@@ -19,6 +19,19 @@ public class Customer {
         this.gender = gender;
     }
 
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "uid='" + uid + '\'' +
+                ", full_name='" + full_name + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", address='" + address + '\'' +
+                ", birthday='" + birthday + '\'' +
+                ", gender=" + gender +
+                '}';
+    }
+
     public Customer() {
     }
 }
