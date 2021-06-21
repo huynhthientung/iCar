@@ -3,6 +3,7 @@ package com.example.icar.ui.profile;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -21,6 +22,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.icar.Customer;
+import com.example.icar.UpdateProfileActivity;
 import com.example.icar.databinding.FragmentProfileBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -42,6 +44,7 @@ public class ProfileFragment extends Fragment {
     private FirebaseAuth mAuth;
     private FirebaseUser mUser;
     private DatabaseReference mReference;
+    private String name;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -72,12 +75,13 @@ public class ProfileFragment extends Fragment {
 
         progressBar.setVisibility(View.VISIBLE);
         String uid = mUser.getUid();
+//        Select * from Customers where UID = KEY
         mReference.child("Customers").child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
                 Customer customer = snapshot.getValue(Customer.class);
+                name = customer.full_name;
                 try {
-//                    Select * from Customers where UID = KEY
                     txtName.setText(txtName.getText().toString() + customer.full_name);
                     txtEmail.setText(txtEmail.getText().toString() + customer.email);
                     txtPhone.setText(txtPhone.getText().toString() + customer.phone);
@@ -94,6 +98,17 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onCancelled(@NonNull @NotNull DatabaseError error) {
 
+            }
+        });
+
+        btnEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), UpdateProfileActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("name", name);
+                intent.putExtras(bundle);
+                startActivity(intent);
             }
         });
         return root;

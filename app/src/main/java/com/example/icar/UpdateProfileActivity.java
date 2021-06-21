@@ -118,6 +118,8 @@ public class UpdateProfileActivity extends AppCompatActivity {
                                 progressBar.setVisibility(View.GONE);
                                 Toast.makeText(UpdateProfileActivity.this, "Update profile successfully", Toast.LENGTH_SHORT).show();
                                 //TODO: navigate to Dashboard
+                                startActivity(new Intent(UpdateProfileActivity.this, HomeActivity.class));
+                                finish();
                             } else {
                                 progressBar.setVisibility(View.GONE);
                                 Toast.makeText(UpdateProfileActivity.this, "Update profile unsuccessfully", Toast.LENGTH_SHORT).show();
