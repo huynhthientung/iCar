@@ -34,7 +34,7 @@ public class ForgetPasswordActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forget_password);
-        getSupportActionBar().setTitle("Reset password");
+        getSupportActionBar().setTitle(R.string.reset_password);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         mAuth = FirebaseAuth.getInstance();
         initializeViews();
@@ -97,12 +97,8 @@ public class ForgetPasswordActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                onBackPressed();
-                break;
-            default:
-                break;
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
         }
         return super.onOptionsItemSelected(item);
     }

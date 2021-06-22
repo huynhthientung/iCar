@@ -37,7 +37,7 @@ public class FeedbackActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feedback);
-//        Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.title_Feedback);
+        this.getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_action_close);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         mUser = FirebaseAuth.getInstance().getCurrentUser();
         mReference = FirebaseDatabase.getInstance().getReference();

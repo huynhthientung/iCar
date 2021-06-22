@@ -1,5 +1,6 @@
 package com.example.icar.ui.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,8 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
+import com.example.icar.AboutUsActivity;
+import com.example.icar.LicenseActivity;
 import com.example.icar.R;
 import com.example.icar.databinding.FragmentHomeBinding;
 
@@ -84,8 +87,8 @@ public class HomeFragment extends Fragment {
     }
 
     private void license_onClick() {
-        Toast.makeText(getContext(), "License", Toast.LENGTH_SHORT).show();
-
+//        Toast.makeText(getContext(), "License", Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(getContext(), LicenseActivity.class));
     }
 
     private void service_onClick() {
@@ -94,8 +97,8 @@ public class HomeFragment extends Fragment {
     }
 
     private void about_onClick() {
-        Toast.makeText(getContext(), "about", Toast.LENGTH_SHORT).show();
-
+//        Toast.makeText(getContext(), "about", Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(getContext(), AboutUsActivity.class));
     }
 
     @Override
