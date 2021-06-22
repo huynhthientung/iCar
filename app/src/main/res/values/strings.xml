@@ -19,5 +19,7 @@
     <string name="communication_title">Communication</string>
 
     <string name="title_Feedback">Gửi đánh giá</string>
+    <string name="title_License">Chính sách vận chuyển</string>
+    <string name="title_AboutUs">Về chúng tôi</string>
 
 </resources>

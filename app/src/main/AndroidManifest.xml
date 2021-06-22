@@ -10,6 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ICar">
         <activity
+            android:name=".AboutUsActivity"
+            android:label="@string/title_AboutUs"
+            android:theme="@style/Theme.ICarActionBar" />
+        <activity
+            android:name=".LicenseActivity"
+            android:label="@string/title_License"
+            android:theme="@style/Theme.ICarActionBar" />
+        <activity
             android:name=".feedback.FeedbackActivity"
             android:label="@string/title_Feedback"
             android:theme="@style/Theme.ICarActionBar" />
