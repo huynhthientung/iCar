@@ -15,5 +15,9 @@
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
     <string name="menu_logout">Logout</string>
+    <string name="menu_feedback">Feedback</string>
     <string name="communication_title">Communication</string>
+
+    <string name="title_Feedback">Gửi đánh giá</string>
+
 </resources>

@@ -10,9 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ICar">
         <activity
+            android:name=".feedback.FeedbackActivity"
+            android:label="@string/title_Feedback"
+            android:theme="@style/Theme.ICarActionBar" />
+        <activity
             android:name=".HomeActivity"
             android:label="@string/title_activity_home"
-            android:theme="@style/Theme.ICar.NoActionBar"></activity>
+            android:theme="@style/Theme.ICar.NoActionBar" />
         <activity
             android:name=".ForgetPasswordActivity"
             android:theme="@style/Theme.ICarActionBar" />

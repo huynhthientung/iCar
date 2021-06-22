@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.icar.feedback.FeedbackActivity;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
@@ -90,6 +91,14 @@ public class HomeActivity extends AppCompatActivity {
                 return false;
             }
         });
+        navigationView.getMenu().findItem(R.id.nav_feedback).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                Toast.makeText(HomeActivity.this, "Feedback", Toast.LENGTH_SHORT).show();
+                sendFeedback();
+                return false;
+            }
+        });
 
 //        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
 //            @Override
@@ -118,6 +127,10 @@ public class HomeActivity extends AppCompatActivity {
 //                return true;
 //            }
 //        });
+    }
+
+    private void sendFeedback() {
+        startActivity(new Intent(this, FeedbackActivity.class));
     }
 
     private void logout() {
