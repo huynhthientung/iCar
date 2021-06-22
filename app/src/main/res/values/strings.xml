@@ -8,18 +8,38 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
-    <string name="menu_home">Home</string>
-    <string name="menu_profile">Profile</string>
-    <string name="menu_transaction">Transaction</string>
-    <string name="menu_history">History</string>
-    <string name="menu_share">Share</string>
-    <string name="menu_send">Send</string>
-    <string name="menu_logout">Logout</string>
-    <string name="menu_feedback">Feedback</string>
-    <string name="communication_title">Communication</string>
+    <string name="menu_home">Trang chủ</string>
+    <string name="menu_profile">Thông tin cá nhân</string>
+    <string name="menu_transaction">Giao dịch</string>
+    <string name="menu_history">Lịch sử</string>
+    <string name="menu_share">Chia sẻ</string>
+    <string name="menu_send">Gửi email</string>
+    <string name="menu_logout">Đăng xuất</string>
+    <string name="menu_feedback">Góp ý</string>
+    <string name="communication_title">Mở rộng</string>
 
     <string name="title_Feedback">Gửi đánh giá</string>
     <string name="title_License">Chính sách vận chuyển</string>
     <string name="title_AboutUs">Về chúng tôi</string>
+
+    <string name="car_booking">Tiến hành đặt xe</string>
+    <string name="car_searching">Tra cứu xe</string>
+    <string name="service_searching">Tra cứu dịch vụ</string>
+    <string name="about_license">Chính sách vận chuyển</string>
+    <string name="about_us">Về chúng tôi</string>
+    <string name="welcome">Chào mừng bạn đến với iCar</string>
+    <string name="email">Email</string>
+    <string name="password">Mật khẩu</string>
+    <string name="show_password">Hiện mật khẩu</string>
+    <string name="sign_in">Đăng nhập</string>
+    <string name="sign_up">Đăng ký</string>
+    <string name="forgot_password">Quên mật khẩu</string>
+    <string name="send">Gửi</string>
+    <string name="please_enter_your_email_to_reset_password">Vui lòng nhập email để khôi phục mật khẩu</string>
+    <string name="reset_password">Khôi phục mật khẩu</string>
+
+
+
+
 
 </resources>

@@ -41,8 +41,8 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:gravity="center"
-            android:text="Tien hanh dat xe"
-            android:textSize="25dp"
+            android:textSize="25sp"
+            android:text="@string/car_booking"
             android:textStyle="bold" />
 
     </androidx.cardview.widget.CardView>
@@ -68,7 +68,7 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:gravity="center"
-            android:text="Tra cuu xe"
+            android:text="@string/car_searching"
             android:textSize="25sp"
             android:textStyle="bold" />
 
@@ -95,7 +95,7 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:gravity="center"
-            android:text="Tra cuu dich vu"
+            android:text="@string/service_searching"
             android:textSize="25sp"
             android:textStyle="bold" />
 
@@ -122,7 +122,7 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:gravity="center"
-            android:text="Chinh sach van chuyen"
+            android:text="@string/about_license"
             android:textSize="25sp"
             android:textStyle="bold" />
 
@@ -149,7 +149,7 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:gravity="center"
-            android:text="Ve chung toi"
+            android:text="@string/about_us"
             android:textSize="25sp"
             android:textStyle="bold" />
 
