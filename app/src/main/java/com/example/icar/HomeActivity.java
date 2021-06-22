@@ -95,7 +95,6 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 Toast.makeText(HomeActivity.this, "Feedback", Toast.LENGTH_SHORT).show();
-                //TODO: handle later
                 sendFeedback();
                 return false;
             }
