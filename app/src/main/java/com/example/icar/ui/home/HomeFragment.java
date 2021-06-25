@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment;
 import com.example.icar.AboutUsActivity;
 import com.example.icar.LicenseActivity;
 import com.example.icar.R;
+import com.example.icar.ServiceActivity;
 import com.example.icar.databinding.FragmentHomeBinding;
 
 public class HomeFragment extends Fragment {
@@ -92,8 +93,8 @@ public class HomeFragment extends Fragment {
     }
 
     private void service_onClick() {
-        Toast.makeText(getContext(), "Service", Toast.LENGTH_SHORT).show();
-
+//        Toast.makeText(getContext(), "Service", Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(getContext(), ServiceActivity.class));
     }
 
     private void about_onClick() {

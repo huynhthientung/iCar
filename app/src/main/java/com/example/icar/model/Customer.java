@@ -1,4 +1,4 @@
-package com.example.icar;
+package com.example.icar.model;
 
 public class Customer {
     public String uid;

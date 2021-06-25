@@ -1,4 +1,4 @@
-package com.example.icar.feedback;
+package com.example.icar.model;
 
 public class Feedback {
     public String text;
