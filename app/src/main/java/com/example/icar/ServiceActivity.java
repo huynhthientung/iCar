@@ -32,10 +32,10 @@ public class ServiceActivity extends AppCompatActivity {
 
     private Spinner spinner;
     private RecyclerView recViewService, recViewExtra;
-    private ArrayList<Service> services = new ArrayList<>();
+    public  ArrayList<Service> services = new ArrayList<>();
     private ArrayList<ExtraService> extraServices = new ArrayList<>();
     private DatabaseReference root;
-    private ServiceRecyclerViewAdapter serviceRecyclerViewAdapter = null;
+    private ServiceRecyclerViewAdapter serviceRecyclerViewAdapter;
     private ExtraServiceRecyclerViewAdapter extraServiceRecyclerViewAdapter = null;
 
     @Override
@@ -52,19 +52,21 @@ public class ServiceActivity extends AppCompatActivity {
         spinner.setAdapter(adapter);
 
         recViewService = findViewById(R.id.recyclerService);
-        recViewExtra = findViewById(R.id.recyclerExtra);
+//        recViewExtra = findViewById(R.id.recyclerExtra);
 
+
+        serviceRecyclerViewAdapter = new ServiceRecyclerViewAdapter(this);
+        serviceRecyclerViewAdapter.setServices(services);
+        recViewService.setLayoutManager(new LinearLayoutManager(this));
+        recViewService.setAdapter(serviceRecyclerViewAdapter);
         getDataToArrayList();
 
-        serviceRecyclerViewAdapter = new ServiceRecyclerViewAdapter();
-        serviceRecyclerViewAdapter.setServices(services);
-        recViewService.setAdapter(serviceRecyclerViewAdapter);
-        recViewService.setLayoutManager(new LinearLayoutManager(this));
 
-        extraServiceRecyclerViewAdapter = new ExtraServiceRecyclerViewAdapter();
-        extraServiceRecyclerViewAdapter.setExtraServices(extraServices);
-        recViewExtra.setAdapter(extraServiceRecyclerViewAdapter);
-        recViewExtra.setLayoutManager(new LinearLayoutManager(this));
+
+//        extraServiceRecyclerViewAdapter = new ExtraServiceRecyclerViewAdapter();
+//        extraServiceRecyclerViewAdapter.setExtraServices(extraServices);
+//        recViewExtra.setAdapter(extraServiceRecyclerViewAdapter);
+//        recViewExtra.setLayoutManager(new LinearLayoutManager(this));
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -81,6 +83,7 @@ public class ServiceActivity extends AppCompatActivity {
 
     }
 
+
     private void getDataToArrayList() {
         root = FirebaseDatabase.getInstance().getReference();
         root.child("Services").addChildEventListener(new ChildEventListener() {
@@ -88,6 +91,7 @@ public class ServiceActivity extends AppCompatActivity {
             public void onChildAdded(@NonNull @NotNull DataSnapshot snapshot, @Nullable @org.jetbrains.annotations.Nullable String previousChildName) {
                 Service service = snapshot.getValue(Service.class);
                 services.add(service);
+                serviceRecyclerViewAdapter.notifyDataSetChanged();
             }
 
             @Override

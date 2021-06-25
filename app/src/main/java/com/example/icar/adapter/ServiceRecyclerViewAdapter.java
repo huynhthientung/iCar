@@ -1,5 +1,6 @@
 package com.example.icar.adapter;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,28 +19,30 @@ import java.util.ArrayList;
 public class ServiceRecyclerViewAdapter extends RecyclerView.Adapter<ServiceRecyclerViewAdapter.ViewHolder>{
 
     private ArrayList<Service> services = new ArrayList<>();
+    private Context context;
 
-    public ServiceRecyclerViewAdapter() {
+    public ServiceRecyclerViewAdapter(Context context) {
+        this.context = context;
     }
 
     public void setServices(ArrayList<Service> services) {
         this.services = services;
-        notifyDataSetChanged();
+//        notifyDataSetChanged();
     }
 
     @NonNull
     @NotNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.service_list_item, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.service_list_item, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull @NotNull ServiceRecyclerViewAdapter.ViewHolder holder, int position) {
-        holder.txtServiceKey.setText(services.get(position).getServiceKey());
-        holder.txtCarName.setText(services.get(position).getCarName());
-        holder.txtPricePerKm.setText(services.get(position).getPricePerKm());
+        holder.txtServiceKey.setText("" +services.get(position).getServiceKey());
+        holder.txtCarName.setText("Loại xe: " + services.get(position).getCarName());
+        holder.txtPricePerKm.setText("Giá: " + String.valueOf(services.get(position).getPricePerKm()) + "đ/km");
     }
 
     @Override
