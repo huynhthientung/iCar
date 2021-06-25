@@ -10,6 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ICar">
         <activity
+            android:name=".ServiceActivity"
+            android:label="@string/title_ServiceLookup"
+            android:theme="@style/Theme.ICarActionBar" />
+        <activity
             android:name=".AboutUsActivity"
             android:label="@string/title_AboutUs"
             android:theme="@style/Theme.ICarActionBar" />
