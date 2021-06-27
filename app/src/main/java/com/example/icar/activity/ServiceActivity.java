@@ -1,4 +1,4 @@
-package com.example.icar;
+package com.example.icar.activity;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -14,6 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.icar.R;
 import com.example.icar.adapter.ExtraServiceRecyclerViewAdapter;
 import com.example.icar.adapter.ServiceRecyclerViewAdapter;
 import com.example.icar.model.ExtraService;

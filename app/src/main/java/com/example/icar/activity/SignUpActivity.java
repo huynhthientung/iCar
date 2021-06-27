@@ -1,4 +1,4 @@
-package com.example.icar;
+package com.example.icar.activity;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
@@ -9,7 +9,6 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.InputType;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
@@ -19,6 +18,8 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.example.icar.MainActivity;
+import com.example.icar.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;

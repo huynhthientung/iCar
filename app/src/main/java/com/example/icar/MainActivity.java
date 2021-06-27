@@ -10,24 +10,21 @@ import android.os.Build;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
-import android.view.Window;
 import android.view.WindowManager;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.icar.model.ExtraService;
-import com.example.icar.model.Service;
+import com.example.icar.activity.ForgetPasswordActivity;
+import com.example.icar.activity.HomeActivity;
+import com.example.icar.activity.SignUpActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 import org.jetbrains.annotations.NotNull;
 

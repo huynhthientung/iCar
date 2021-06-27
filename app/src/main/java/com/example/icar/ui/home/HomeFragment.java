@@ -6,17 +6,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
-import com.example.icar.AboutUsActivity;
-import com.example.icar.LicenseActivity;
+import com.example.icar.activity.AboutUsActivity;
+import com.example.icar.activity.LicenseActivity;
 import com.example.icar.R;
-import com.example.icar.ServiceActivity;
+import com.example.icar.activity.ServiceActivity;
 import com.example.icar.databinding.FragmentHomeBinding;
 
 public class HomeFragment extends Fragment {

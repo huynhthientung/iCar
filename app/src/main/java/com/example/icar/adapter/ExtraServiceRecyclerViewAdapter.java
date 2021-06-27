@@ -34,7 +34,7 @@ public class ExtraServiceRecyclerViewAdapter extends RecyclerView.Adapter<ExtraS
     @NotNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
-        View viewHolder = LayoutInflater.from(context).inflate(R.layout.extra_list_item, parent, false);
+        View viewHolder = LayoutInflater.from(context).inflate(R.layout.list_item_extra, parent, false);
         return new ViewHolder(viewHolder);
     }
 

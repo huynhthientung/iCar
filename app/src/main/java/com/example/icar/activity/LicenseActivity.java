@@ -1,4 +1,4 @@
-package com.example.icar;
+package com.example.icar.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,6 +8,8 @@ import android.text.Html;
 import android.text.method.ScrollingMovementMethod;
 import android.view.MenuItem;
 import android.widget.TextView;
+
+import com.example.icar.R;
 
 public class LicenseActivity extends AppCompatActivity {
 

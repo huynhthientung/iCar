@@ -1,4 +1,4 @@
-package com.example.icar;
+package com.example.icar.activity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -11,9 +11,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.icar.MainActivity;
+import com.example.icar.R;
 import com.example.icar.feedback.FeedbackActivity;
 import com.example.icar.model.Utils;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.appcompat.app.AlertDialog;
