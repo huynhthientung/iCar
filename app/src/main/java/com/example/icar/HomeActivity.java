@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.icar.feedback.FeedbackActivity;
+import com.example.icar.model.Utils;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
@@ -36,6 +37,12 @@ public class HomeActivity extends AppCompatActivity {
     private long backPressed;
     private FirebaseAuth mAuth;
     private FirebaseUser mUser;
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Utils.getInstance();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

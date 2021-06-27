@@ -18,6 +18,7 @@ import com.example.icar.adapter.ExtraServiceRecyclerViewAdapter;
 import com.example.icar.adapter.ServiceRecyclerViewAdapter;
 import com.example.icar.model.ExtraService;
 import com.example.icar.model.Service;
+import com.example.icar.model.Utils;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -54,6 +55,9 @@ public class ServiceActivity extends AppCompatActivity {
         recViewService = findViewById(R.id.recyclerService);
         recViewExtra = findViewById(R.id.recyclerExtra);
 
+        services = Utils.getInstance().getServiceArrayList();
+        extraServices = Utils.getInstance().getExtraServiceArrayList();
+
         serviceRecyclerViewAdapter = new ServiceRecyclerViewAdapter(this);
         serviceRecyclerViewAdapter.setServices(services);
         recViewService.setLayoutManager(new LinearLayoutManager(this));
@@ -65,7 +69,7 @@ public class ServiceActivity extends AppCompatActivity {
         recViewExtra.setAdapter(extraServiceRecyclerViewAdapter);
 
 
-        getDataToArrayList();
+//        getDataToArrayList();
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override

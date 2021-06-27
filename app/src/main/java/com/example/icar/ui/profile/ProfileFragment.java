@@ -19,6 +19,7 @@ import com.bumptech.glide.Glide;
 import com.example.icar.model.Customer;
 import com.example.icar.UpdateProfileActivity;
 import com.example.icar.databinding.FragmentProfileBinding;
+import com.example.icar.model.Utils;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -33,9 +34,6 @@ import org.jetbrains.annotations.NotNull;
 public class ProfileFragment extends Fragment {
 
     private FragmentProfileBinding binding;
-    private FirebaseAuth mAuth;
-    private FirebaseUser mUser;
-    private DatabaseReference mReference;
     private String name;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -43,13 +41,6 @@ public class ProfileFragment extends Fragment {
         FirebaseApp.initializeApp(getContext());
         binding = FragmentProfileBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-        mAuth = FirebaseAuth.getInstance();
-        mReference = FirebaseDatabase.getInstance().getReference();
-        mUser = mAuth.getCurrentUser();
-        /*
-            write code here
-         */
-
         final ImageView igmAvatar;
         final TextView txtName, txtEmail, txtPhone, txtAddress, txtBirthday, txtGender;
         final Button btnEdit;
@@ -66,33 +57,21 @@ public class ProfileFragment extends Fragment {
         progressBar = binding.progressBarProFrm;
 
         progressBar.setVisibility(View.VISIBLE);
-        String uid = mUser.getUid();
-//        Select * from Customers where UID = KEY
-        mReference.child("Customers").child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
-                Customer customer = snapshot.getValue(Customer.class);
-                name = customer.full_name;
-                try {
-                    txtName.setText(txtName.getText().toString() + customer.full_name);
-                    txtEmail.setText(txtEmail.getText().toString() + customer.email);
-                    txtPhone.setText(txtPhone.getText().toString() + customer.phone);
-                    txtAddress.setText(txtAddress.getText().toString() + customer.address);
-                    txtBirthday.setText(txtBirthday.getText().toString() + customer.birthday);
-                    txtGender.setText(txtGender.getText().toString() + (customer.gender ? "Nam" : "Nu"));
-                    Glide.with(getContext()).asBitmap().load(mUser.getPhotoUrl()).into(igmAvatar);
-                } catch (Exception e) {
-                    Log.d("AAA", e.getMessage());
-                }
-                progressBar.setVisibility(View.GONE);
-            }
-
-            @Override
-            public void onCancelled(@NonNull @NotNull DatabaseError error) {
-
-            }
-        });
-
+        String uid = Utils.getInstance().getUid();
+        Customer customer = Utils.getInstance().getCustomer(); // Select * from Customers where UID = KEY
+        name = customer.full_name;
+        try {
+            txtName.setText(txtName.getText().toString() + customer.full_name);
+            txtEmail.setText(txtEmail.getText().toString() + customer.email);
+            txtPhone.setText(txtPhone.getText().toString() + customer.phone);
+            txtAddress.setText(txtAddress.getText().toString() + customer.address);
+            txtBirthday.setText(txtBirthday.getText().toString() + customer.birthday);
+            txtGender.setText(txtGender.getText().toString() + (customer.gender ? "Nam" : "Nu"));
+            Glide.with(getContext()).asBitmap().load(Utils.getInstance().getPhotoUrl()).into(igmAvatar);
+        } catch (Exception e) {
+            Log.d("AAA", e.getMessage());
+        }
+        progressBar.setVisibility(View.GONE);
         btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
