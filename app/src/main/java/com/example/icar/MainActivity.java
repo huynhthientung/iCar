@@ -20,11 +20,14 @@ import android.widget.Toast;
 import com.example.icar.activity.ForgetPasswordActivity;
 import com.example.icar.activity.HomeActivity;
 import com.example.icar.activity.SignUpActivity;
+import com.example.icar.model.ExtraService;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -50,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         btnEnter = findViewById(R.id.floatingButtonEnter);
         checkBox = findViewById(R.id.checkboxShowPassword);
         progressBar = findViewById(R.id.progressBar);
-
+        test();
         btnEnter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,21 +73,21 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-//    private void test() {
-//        DatabaseReference root = FirebaseDatabase.getInstance().getReference();
-//        ExtraService extraService =
-//                new ExtraService("ESK04", "Quay lại điểm lấy hàng", 200000);
-//        root.child("ExtraServices").child(extraService.extraServiceKey).setValue(extraService).addOnCompleteListener(new OnCompleteListener<Void>() {
-//            @Override
-//            public void onComplete(@NonNull @NotNull Task<Void> task) {
-//                if (task.isSuccessful()) {
-//                    Toast.makeText(MainActivity.this, "Thanh cong", Toast.LENGTH_SHORT).show();
-//                } else {
-//                    Toast.makeText(MainActivity.this, "That bai", Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//        });
-//    }
+    private void test() {
+        DatabaseReference root = FirebaseDatabase.getInstance().getReference();
+        ExtraService extraService =
+                new ExtraService("ESK04", "Quay lại điểm lấy hàng", 200000);
+        root.child("ExtraServices").child(extraService.extraServiceKey).setValue(extraService).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull @NotNull Task<Void> task) {
+                if (task.isSuccessful()) {
+                    Toast.makeText(MainActivity.this, "Thanh cong", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(MainActivity.this, "That bai", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
 
     private void onSignIn() {
         String email = edtEmail.getText().toString();
