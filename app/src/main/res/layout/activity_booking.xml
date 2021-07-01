@@ -322,7 +322,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:gravity="center"
-                    android:text="0" />
+                    android:text="0"
+                    android:textStyle="bold"
+                    android:layout_marginStart="5dp" />
 
                 <TextView
                     android:id="@+id/textView26"
@@ -336,7 +338,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:text="Tinh k/cach"
-                    android:textAllCaps="false" />
+                    android:textAllCaps="false"
+                    android:layout_marginStart="5dp" />
 
             </LinearLayout>
 
@@ -358,7 +361,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:gravity="center"
-                    android:text="0" />
+                    android:text="0"
+                    android:textStyle="bold"
+                    android:layout_marginStart="5dp" />
 
                 <TextView
                     android:id="@+id/textView29"
@@ -372,8 +377,35 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:text="Tinh tien"
-                    android:textAllCaps="false" />
+                    android:textAllCaps="false"
+                    android:layout_marginStart="5dp" />
             </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_margin="5dp"
+                android:id="@+id/button_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAllCaps="false"
+                android:layout_weight="1"
+                android:text="Huy" />
+
+            <Button
+                android:layout_margin="5dp"
+                android:id="@+id/button_confirm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textAllCaps="false"
+                android:text="Xac nhan" />
         </LinearLayout>
     </LinearLayout>
 
