@@ -22,6 +22,7 @@
     <string name="title_License">Chính sách vận chuyển</string>
     <string name="title_AboutUs">Về chúng tôi</string>
     <string name="title_ServiceLookup">Tra cứu dịch vụ</string>
+    <string name="title_Booking">Đặt xe</string>
 
     <string name="car_booking">Tiến hành đặt xe</string>
     <string name="car_searching">Tra cứu xe</string>
