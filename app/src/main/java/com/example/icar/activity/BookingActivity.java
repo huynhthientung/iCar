@@ -6,8 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Build;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
+import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -16,16 +15,25 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.icar.R;
+import com.example.icar.model.Bookings;
 import com.example.icar.model.ExtraService;
 import com.example.icar.model.Service;
 import com.example.icar.model.Utils;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Objects;
 import java.util.Random;
 
@@ -38,6 +46,7 @@ public class BookingActivity extends AppCompatActivity {
     private CheckBox checkBoxESK01, checkBoxESK02, checkBoxESK03, checkBoxESK04;
     private TextView txtDistance, txtTotal;
     private Button btnCancel, btnConfirm;
+    private ProgressBar progressBar;
     private int distance = 10, total = 0, price = 0;
 
     private boolean IS_SOURCE_ADDRESS_FILLED = false;
@@ -48,6 +57,13 @@ public class BookingActivity extends AppCompatActivity {
     private String[] provinces;
     private int idSource, idDestination;
 
+    private DatabaseReference root;
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        root = FirebaseDatabase.getInstance().getReference();
+    }
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
@@ -182,11 +198,49 @@ public class BookingActivity extends AppCompatActivity {
     }
 
     private void booking() {
+        progressBar.setVisibility(View.VISIBLE);
+        Calendar calendar = Calendar.getInstance();
+        String bookingKey = String.valueOf(calendar.getTimeInMillis());
+        String uid = Utils.getInstance().getUid();
+        String dateCreated = calendar.getTime().toString();
+        String source = edtSourceAddress.getText().toString();
+        String destination = edtDestinationAddress.getText().toString();
+        String departure = edtDateDepart.getText().toString();
+        String arrival = edtDateArrival.getText().toString();
+        String receiverName = edtReceiverName.getText().toString();
+        String receiverPhone = edtReceiverPhone.getText().toString();
+        String receiverNote = edtReceiverNote.getText().toString();
+
+        if (source.isEmpty() || destination.isEmpty() || departure.isEmpty() || arrival.isEmpty()
+                || receiverName.isEmpty() || receiverPhone.isEmpty() || receiverNote.isEmpty()) {
+            progressBar.setVisibility(View.GONE);
+            Toast.makeText(this, "Vui lòng nhập đầy đủ thông tin!", Toast.LENGTH_SHORT).show();
+        } else {
+            source += ", " + provinces[idSource];
+            destination += ", " + provinces[idDestination];
+            Bookings booking = new Bookings(bookingKey, uid, dateCreated, source, destination, departure, arrival,
+                    receiverName, receiverPhone, receiverNote, checkBoxESK01.isChecked(), checkBoxESK02.isChecked(),
+                    checkBoxESK03.isChecked(), checkBoxESK04.isChecked(), total);
+            root.child("Bookings").child(bookingKey).setValue(booking)
+                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull @NotNull Task<Void> task) {
+                            if (task.isSuccessful()) {
+                                progressBar.setVisibility(View.GONE);
+                                Toast.makeText(BookingActivity.this, "Đặt xe thành công!", Toast.LENGTH_SHORT).show();
+                            } else {
+                                progressBar.setVisibility(View.GONE);
+                                Toast.makeText(BookingActivity.this, "Đặt xe thất bại!", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+        }
+
 
     }
 
-    private void updateTotalAndDistance() {
 
+    private void updateTotalAndDistance() {
         txtTotal.setText(String.valueOf(total));
         txtDistance.setText(String.valueOf(distance));
     }
@@ -215,6 +269,8 @@ public class BookingActivity extends AppCompatActivity {
 
         btnCancel = findViewById(R.id.button_cancel);
         btnConfirm = findViewById(R.id.button_confirm);
+
+        progressBar = findViewById(R.id.progressBar_Loading);
 
     }
 
