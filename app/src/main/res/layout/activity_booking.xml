@@ -23,7 +23,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Diem di"
+                android:text="@string/source_place"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -36,7 +36,7 @@
                     android:id="@+id/textView11"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Tinh:"
+                    android:text="@string/province"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -56,7 +56,7 @@
                     android:layout_marginStart="1dp"
                     android:layout_marginLeft="1dp"
                     android:layout_marginTop="8dp"
-                    android:text="Dia chi cu the:"
+                    android:text="@string/detail_address"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/spinner_source" />
 
@@ -87,7 +87,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Diem den"
+                android:text="@string/destination_place"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -100,7 +100,7 @@
                     android:id="@+id/textView15"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Tinh:"
+                    android:text="@string/province"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -120,7 +120,7 @@
                     android:layout_marginStart="1dp"
                     android:layout_marginLeft="1dp"
                     android:layout_marginTop="8dp"
-                    android:text="Dia chi cu the:"
+                    android:text="@string/detail_address"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/spinner_destination" />
 
@@ -154,7 +154,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
                 android:gravity="center"
-                android:text="Them chi tiet xe"
+                android:text="@string/add_car_detail"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -168,7 +168,7 @@
                     android:id="@+id/textView22"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Chon loai xe: " />
+                    android:text="@string/select_car_model" />
 
                 <Spinner
                     android:id="@+id/spinner_carModel"
@@ -187,7 +187,7 @@
                     android:id="@+id/textView23"
                     android:layout_width="60dp"
                     android:layout_height="wrap_content"
-                    android:text="Ngay di" />
+                    android:text="@string/departure_date" />
 
                 <EditText
                     android:id="@+id/editTextDate_ngayDi"
@@ -210,7 +210,7 @@
                     android:id="@+id/textView235"
                     android:layout_width="60dp"
                     android:layout_height="wrap_content"
-                    android:text="Ngay den" />
+                    android:text="@string/arrival_date" />
 
                 <EditText
                     android:id="@+id/editTextDate_ngayDen"
@@ -234,7 +234,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Chon goi dich vu them"
+                    android:text="@string/select_extra_service"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
@@ -242,25 +242,25 @@
                     android:id="@+id/checkBox1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="ESK01 - Phi cho moi gio 50.000vnd" />
+                    android:text="@string/esk01" />
 
                 <CheckBox
                     android:id="@+id/checkBox2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="ESK02 - Them moi diem dung 30.000vnd" />
+                    android:text="@string/eks02" />
 
                 <CheckBox
                     android:id="@+id/checkBox3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="ESK03- Them 01 nguoi boc hang 300.000vnd" />
+                    android:text="@string/eks03" />
 
                 <CheckBox
                     android:id="@+id/checkBox4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="ESK04 - Quay lai diem lay hang 200.000vnd" />
+                    android:text="@string/eks04" />
 
                 <!--                <RadioGroup-->
                 <!--                    android:id="@+id/radioGroup_extraService"-->
@@ -312,7 +312,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
                 android:gravity="center"
-                android:text="Thong tin nguoi nhan"
+                android:text="@string/receiver_infomation"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -320,7 +320,7 @@
                 android:id="@+id/textView18"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Ten nguoi nhan" />
+                android:text="@string/receiver_name" />
 
             <EditText
                 android:id="@+id/editText_receicerName"
@@ -333,7 +333,7 @@
                 android:id="@+id/textView19"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="So dien thoai nguoi nhan" />
+                android:text="@string/receiver_phone" />
 
             <EditText
                 android:id="@+id/editTextPhone_recieverPhone"
@@ -346,7 +346,7 @@
                 android:id="@+id/textView20"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Ghi chu" />
+                android:text="@string/note" />
 
             <EditText
                 android:id="@+id/editTextTextMultiLine_Note"
@@ -372,7 +372,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
                 android:gravity="center"
-                android:text="Tra cuu gia tien"
+                android:text="@string/serch_total"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -385,7 +385,7 @@
                     android:id="@+id/textView24"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
-                    android:text="Khoang cach:"
+                    android:text="@string/distance"
                     android:textSize="16sp" />
 
                 <TextView
@@ -416,7 +416,7 @@
                     android:id="@+id/textView27"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
-                    android:text="Tong cong:"
+                    android:text="@string/total"
                     android:textSize="16sp" />
 
                 <TextView
@@ -458,7 +458,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
-                android:text="Huy"
+                android:text="@string/cancel"
                 android:textAllCaps="false" />
 
             <Button
@@ -467,7 +467,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
-                android:text="Xac nhan"
+                android:text="@string/confirm"
                 android:textAllCaps="false" />
         </LinearLayout>
     </LinearLayout>

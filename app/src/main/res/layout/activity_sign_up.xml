@@ -18,7 +18,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="100dp"
         android:layout_marginEnd="8dp"
-        android:text="Register\nNew Account"
+        android:text="Đăng ký\ntài khoản"
         android:textColor="@android:color/white"
         android:textSize="30sp"
         android:textStyle="bold"
@@ -40,7 +40,7 @@
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
             android:backgroundTint="@android:color/transparent"
-            android:hint="Name"
+            android:hint="@string/full_name"
             android:inputType="textEmailAddress"
             android:padding="15dp"
             android:textColor="@android:color/white"
@@ -82,7 +82,7 @@
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
             android:backgroundTint="@android:color/transparent"
-            android:hint="Password"
+            android:hint="@string/password"
             android:inputType="textPassword"
             android:padding="15dp"
             android:textColor="@android:color/white"
@@ -102,7 +102,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Show password" />
+            android:text="@string/show_password" />
 
         <ProgressBar
             android:id="@+id/progressBar"
@@ -152,7 +152,7 @@
                 android:layout_marginStart="30dp"
                 android:layout_marginLeft="30dp"
                 android:padding="15dp"
-                android:text="Sign up"
+                android:text="@string/sign_up"
                 android:textColor="@android:color/white"
                 android:textSize="25sp"
                 android:textStyle="bold" />
@@ -174,7 +174,7 @@
                 android:layout_marginLeft="30dp"
                 android:onClick="OpenSigninPage"
                 android:padding="15dp"
-                android:text="Sign in"
+                android:text="@string/sign_in"
                 android:textColor="@android:color/white"
                 android:textSize="18sp"
                 android:textStyle="bold" />
