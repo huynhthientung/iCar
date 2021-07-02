@@ -110,4 +110,17 @@
         <item>Yên Bái</item>
         <item>Kiên Giang</item>
     </string-array>
+
+    <string-array name="carModels">
+        <item>0.5 tấn</item>
+        <item>1 tấn</item>
+        <item>1.5 tấn</item>
+        <item>2 tấn</item>
+        <item>3 tấn</item>
+        <item>5 tấn</item>
+        <item>7 tấn</item>
+        <item>10 tấn</item>
+        <item>13 tấn</item>
+        <item>16 tấn</item>
+    </string-array>
 </resources>

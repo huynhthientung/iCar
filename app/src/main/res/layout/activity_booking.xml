@@ -140,64 +140,6 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="5dp"
-            android:background="@drawable/edittext_background"
-            android:orientation="vertical"
-            android:padding="5dp">
-
-            <TextView
-                android:id="@+id/textView30"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:gravity="center"
-                android:text="Thong tin nguoi nhan"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/textView18"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Ten nguoi nhan" />
-
-            <EditText
-                android:id="@+id/editText_receicerName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName" />
-
-            <TextView
-                android:id="@+id/textView19"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="So dien thoai nguoi nhan" />
-
-            <EditText
-                android:id="@+id/editTextPhone_recieverPhone"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="phone" />
-
-            <TextView
-                android:id="@+id/textView20"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Ghi chu" />
-
-            <EditText
-                android:id="@+id/editTextTextMultiLine_Note"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:gravity="start|top"
-                android:inputType="textMultiLine" />
-        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -283,6 +225,137 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Chon goi dich vu them"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <CheckBox
+                    android:id="@+id/checkBox1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="ESK01 - Phi cho moi gio 50.000vnd" />
+
+                <CheckBox
+                    android:id="@+id/checkBox2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="ESK02 - Them moi diem dung 30.000vnd" />
+
+                <CheckBox
+                    android:id="@+id/checkBox3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="ESK03- Them 01 nguoi boc hang 300.000vnd" />
+
+                <CheckBox
+                    android:id="@+id/checkBox4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="ESK04 - Quay lai diem lay hang 200.000vnd" />
+
+                <!--                <RadioGroup-->
+                <!--                    android:id="@+id/radioGroup_extraService"-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="match_parent">-->
+
+
+                <!--                    <RadioButton-->
+                <!--                        android:id="@+id/radioButton1"-->
+                <!--                        android:layout_width="match_parent"-->
+                <!--                        android:layout_height="wrap_content"-->
+                <!--                        android:text="ESK01 - Phi cho moi gio 50.000vnd" />-->
+
+                <!--                    <RadioButton-->
+                <!--                        android:id="@+id/radioButton2"-->
+                <!--                        android:layout_width="match_parent"-->
+                <!--                        android:layout_height="wrap_content"-->
+                <!--                        android:text="ESK02 - Them moi diem dung 30.000vnd" />-->
+
+                <!--                    <RadioButton-->
+                <!--                        android:id="@+id/radioButton3"-->
+                <!--                        android:layout_width="match_parent"-->
+                <!--                        android:layout_height="wrap_content"-->
+                <!--                        android:text="ESK03- Them 01 nguoi boc hang 300.000vnd" />-->
+
+                <!--                    <RadioButton-->
+                <!--                        android:id="@+id/radioButton4"-->
+                <!--                        android:layout_width="match_parent"-->
+                <!--                        android:layout_height="wrap_content"-->
+                <!--                        android:text="ESK04 - Quay lai diem lay hang 200.000vnd" />-->
+                <!--                </RadioGroup>-->
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/edittext_background"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+            <TextView
+                android:id="@+id/textView30"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:text="Thong tin nguoi nhan"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView18"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ten nguoi nhan" />
+
+            <EditText
+                android:id="@+id/editText_receicerName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName" />
+
+            <TextView
+                android:id="@+id/textView19"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="So dien thoai nguoi nhan" />
+
+            <EditText
+                android:id="@+id/editTextPhone_recieverPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="phone" />
+
+            <TextView
+                android:id="@+id/textView20"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ghi chu" />
+
+            <EditText
+                android:id="@+id/editTextTextMultiLine_Note"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="start|top"
+                android:inputType="textMultiLine" />
         </LinearLayout>
 
         <LinearLayout
@@ -320,11 +393,11 @@
                     android:id="@+id/textView_distance"
                     android:layout_width="130dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
                     android:layout_marginLeft="5dp"
                     android:gravity="center"
                     android:text="0"
-                    android:textStyle="bold"
-                    android:layout_marginStart="5dp" />
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/textView26"
@@ -332,14 +405,6 @@
                     android:layout_height="wrap_content"
                     android:text="km" />
 
-                <Button
-                    android:id="@+id/button_calcDistance"
-                    android:layout_width="123dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:text="Tinh k/cach"
-                    android:textAllCaps="false"
-                    android:layout_marginStart="5dp" />
 
             </LinearLayout>
 
@@ -359,11 +424,11 @@
                     android:id="@+id/textView_total"
                     android:layout_width="130dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
                     android:layout_marginLeft="5dp"
                     android:gravity="center"
                     android:text="0"
-                    android:textStyle="bold"
-                    android:layout_marginStart="5dp" />
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/textView29"
@@ -371,41 +436,33 @@
                     android:layout_height="wrap_content"
                     android:text="vnd" />
 
-                <Button
-                    android:id="@+id/button_calcTotal"
-                    android:layout_width="123dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:text="Tinh tien"
-                    android:textAllCaps="false"
-                    android:layout_marginStart="5dp" />
             </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="5dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="5dp"
             android:orientation="horizontal">
 
             <Button
-                android:layout_margin="5dp"
                 android:id="@+id/button_cancel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAllCaps="false"
+                android:layout_margin="5dp"
                 android:layout_weight="1"
-                android:text="Huy" />
+                android:text="Huy"
+                android:textAllCaps="false" />
 
             <Button
-                android:layout_margin="5dp"
                 android:id="@+id/button_confirm"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="5dp"
                 android:layout_weight="1"
-                android:textAllCaps="false"
-                android:text="Xac nhan" />
+                android:text="Xac nhan"
+                android:textAllCaps="false" />
         </LinearLayout>
     </LinearLayout>
 
