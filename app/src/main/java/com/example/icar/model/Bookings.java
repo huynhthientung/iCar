@@ -48,4 +48,18 @@ public class Bookings {
         this.driverId = "";
     }
 
+    @Override
+    public String toString() {
+        return "Tài xế: " + Utils.getInstance().getDriverName(driverId) + "\n" +
+                "Biển số xe: " + carId + '\n' +
+                "Ngày đặt xe: " + dateCreated + '\n' +
+                "Nơi đi: " + source + '\n' +
+                "Nơi đến: " + destination + '\n' +
+                "Ngày đi: " + dateDepart + '\n' +
+                "Ngày đến: " + dateArrival + '\n' +
+                "Người nhận: " + receiverName + '\n' +
+                "Số điện thoại người nhận: " + receiverPhone + '\n' +
+                "Ghi chú: " + receiverNote + '\n' +
+                "Tổng cộng: " + total + " vnd " + "\n";
+    }
 }

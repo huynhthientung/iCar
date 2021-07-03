@@ -30,6 +30,7 @@ public class Utils {
     private final DatabaseReference root = FirebaseDatabase.getInstance().getReference();
     private static String uid = null;
     private static Uri photoUrl = null;
+    private static String driverName = "";
 
     private Utils() {
         if (null == serviceArrayList) {
@@ -148,6 +149,38 @@ public class Utils {
         return customer;
     }
 
+    public String getDriverName(String uid) {
+        root.child("Drivers").addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull @NotNull DataSnapshot snapshot, @Nullable @org.jetbrains.annotations.Nullable String previousChildName) {
+                Driver driver = snapshot.getValue(Driver.class);
+                if (driver.uid.equals(uid)) {
+                    driverName = driver.full_name;
+                }
+            }
+
+            @Override
+            public void onChildChanged(@NonNull @NotNull DataSnapshot snapshot, @Nullable @org.jetbrains.annotations.Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull @NotNull DataSnapshot snapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull @NotNull DataSnapshot snapshot, @Nullable @org.jetbrains.annotations.Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull @NotNull DatabaseError error) {
+
+            }
+        });
+        return driverName;
+    }
     public static Utils getInstance() {
         if (null == instance) {
             instance = new Utils();
