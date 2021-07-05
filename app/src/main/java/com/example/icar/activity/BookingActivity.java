@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -262,6 +263,8 @@ public class BookingActivity extends AppCompatActivity {
                             if (task.isSuccessful()) {
                                 progressBar.setVisibility(View.GONE);
                                 Toast.makeText(BookingActivity.this, "Đặt xe thành công!", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+                                finish();
                             } else {
                                 progressBar.setVisibility(View.GONE);
                                 Toast.makeText(BookingActivity.this, "Đặt xe thất bại!", Toast.LENGTH_SHORT).show();

@@ -85,8 +85,6 @@
     <string name="confirm">Xác nhận</string>
 
 
-
-
     <string-array name="options_service_array">
         <item>Bảng giá</item>
         <item>Dịch vụ thêm</item>

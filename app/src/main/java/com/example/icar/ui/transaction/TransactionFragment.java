@@ -2,6 +2,7 @@ package com.example.icar.ui.transaction;
 
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -11,10 +12,12 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.icar.activity.HistoryActivity;
 import com.example.icar.databinding.FragmentTransactionBinding;
 import com.example.icar.model.Bookings;
 import com.example.icar.model.Utils;
@@ -33,7 +36,7 @@ public class TransactionFragment extends Fragment {
     private FragmentTransactionBinding binding;
     private ListView lvTransaction;
     private ArrayAdapter adapter = null;
-    private ArrayList<String> transactions;
+    private ArrayList<String> transactions, getTransactions;
     private DatabaseReference mRoot;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -42,7 +45,8 @@ public class TransactionFragment extends Fragment {
         View root = binding.getRoot();
         mRoot = FirebaseDatabase.getInstance().getReference();
         lvTransaction = binding.listViewTransaction;
-        transactions = new ArrayList<String>();
+        transactions = new ArrayList<>();
+        getTransactions = new ArrayList<>();
         adapter = new ArrayAdapter(getContext(), android.R.layout.simple_list_item_1, transactions);
         lvTransaction.setAdapter(adapter);
         mRoot.child("Bookings").addChildEventListener(new ChildEventListener() {
@@ -51,6 +55,7 @@ public class TransactionFragment extends Fragment {
                 Bookings booking = snapshot.getValue(Bookings.class);
                 if (booking.uid.equals(Utils.getInstance().getUid())) {
                     transactions.add(booking.toString());
+                    getTransactions.add(booking.bookingKey);
                 }
                 adapter.notifyDataSetChanged();
             }
@@ -81,6 +86,14 @@ public class TransactionFragment extends Fragment {
             @Override
             public void onCancelled(@NonNull @NotNull DatabaseError error) {
 
+            }
+        });
+        lvTransaction.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(getContext(), HistoryActivity.class);
+                intent.putExtra("BOOKING_KEY", getTransactions.get(position));
+                startActivity(intent);
             }
         });
         return root;
