@@ -195,13 +195,13 @@ public class MainActivity extends AppCompatActivity {
             public void onComplete(@NonNull @NotNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     progressBar.setVisibility(View.GONE);
-                    Toast.makeText(MainActivity.this, "Successfully sign-in", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Đăng nhập thành công ", Toast.LENGTH_SHORT).show();
                     // TODO: move on to dashboard
                     startActivity(new Intent(MainActivity.this, HomeActivity.class));
                     finish();
                 } else {
                     progressBar.setVisibility(View.GONE);
-                    Toast.makeText(MainActivity.this, task.getException().toString(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(MainActivity.this, "Đăng nhập thất bại ", Toast.LENGTH_LONG).show();
                 }
             }
         });

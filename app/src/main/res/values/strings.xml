@@ -11,7 +11,7 @@
     <string name="menu_home">Trang chủ</string>
     <string name="menu_profile">Thông tin cá nhân</string>
     <string name="menu_transaction">Giao dịch</string>
-    <string name="menu_history">Lịch sử</string>
+    <string name="menu_history">Theo dõi đơn vận </string>
     <string name="menu_share">Chia sẻ</string>
     <string name="menu_send">Gửi email</string>
     <string name="menu_logout">Đăng xuất</string>
