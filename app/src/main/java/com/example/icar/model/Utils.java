@@ -50,7 +50,6 @@ public class Utils {
         if (null == customer) {
             initCustomer();
         }
-        //TODO: carArrayList
     }
 
     private void initCustomer() {

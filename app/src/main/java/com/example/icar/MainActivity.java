@@ -125,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
 //        cars.add(car18);
 //        cars.add(car19);
 //
-//
+// for each
 //        for (Car car : cars) {
 //            root.child("Car").child(car.BienSo).setValue(car).addOnCompleteListener(new OnCompleteListener<Void>() {
 //                @Override
